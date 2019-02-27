@@ -1,0 +1,13 @@
+@model Belt.Models.AuctionValidator
+<br>
+<p><a href='main'>Home</a> | <a href='logout'>Logout</a></p>
+<h2>New Auction</h2>
+<div class="half">
+    <form asp-action="Create" asp-controller="Home" method="POST">
+        Product Name <input class="form-control" asp-for="Product"> <span asp-validation-for="Product"></span><br><br>
+        Description <input class="form-control" asp-for="Description"> <span asp-validation-for="Description"></span><br><br>
+        Starting Bid <input class="form-control" asp-for="StartingBid"> <span asp-validation-for="StartingBid"></span><br><br>
+        End Date <input class="form-control" asp-for="EndDate"> <span asp-validation-for="EndDate"></span><br><br>
+        <button class="btn btn-info">Create Auction</button>
+    </form>
+</div>

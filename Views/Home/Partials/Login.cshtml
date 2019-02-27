@@ -1,0 +1,9 @@
+@model Belt.Models.LoginValidator
+<h2>Login</h2>
+<div class="half">
+    <form asp-action="Login" asp-controller="Home" method="post">
+        Username: <input class="form-control" asp-for="LogUsername"> <span asp-validation-for="LogUsername"></span><br><br>
+        Password: <input class="form-control" asp-for="LogPassword"> <span asp-validation-for="LogPassword"></span><br><br>
+        <button class="btn btn-info">Login</button>
+    </form>
+</div>
