@@ -2,33 +2,33 @@
 
 <br><p><a href='/main'>Home</a> | <a href='/logout'>Logout</a></p>
 <h2>@Model.Product</h2>
-@if(Model.SellerId != ViewBag.id)
-{
-    <p>Created by @Model.Seller</p>
-}
-else
-{
-    <p>Your auction</p>
-}
+    @if(Model.SellerId != ViewBag.id)
+    {
+        <p>Created by @Model.Seller</p>
+    }
+    else
+    {
+        <p>Your auction</p>
+    }
 <h4>Description</h4>
 <p>@Model.Description</p>
 <p>Time remaining: @Model.TimeRemaining</p>
-@if(Model.TopBidder == null)
-{
-    <p>Starting bid: $@Model.TopBid</p>
-}
-else if(Model.TopBidderId != ViewBag.id)
-{
-    <p>Current highest bid: $@Model.TopBid by @Model.TopBidder</p>
-}
-else
-{
-    <p>Current highest bid $@Model.TopBid (your bid)</p>
-}
-@if(Model.SellerId != ViewBag.id && Model.TopBidderId != ViewBag.id)
-{
-    <p>You currently have $@ViewBag.wallet.</p>
-    <form action="/auction/@Model.id/bid" method="post">
-        <input name="bid" type="number" step="0.01"> <input type='submit' value='Bid!'>
-    </form>
-}
+    @if(Model.TopBidder == null)
+    {
+        <p>Starting bid: $@Model.TopBid</p>
+    }
+    else if(Model.TopBidderId != ViewBag.id)
+    {
+        <p>Current highest bid: $@Model.TopBid by @Model.TopBidder</p>
+    }
+    else
+    {
+        <p>Current highest bid $@Model.TopBid (your bid)</p>
+    }
+    @if(Model.SellerId != ViewBag.id && Model.TopBidderId != ViewBag.id)
+    {
+        <p>You currently have $@ViewBag.wallet.</p>
+        <form action="/auction/@Model.id/bid" method="post">
+            <input name="bid" type="number" step="0.01"> <input type='submit' value='Bid!'>
+        </form>
+    }

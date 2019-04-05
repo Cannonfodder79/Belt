@@ -10,33 +10,36 @@
         <th>Seller</th>
         <th>Top Bid</th>
         <th>Time Remaining</th>
-        <th>Actions</th>
+        <th></th>
     </tr>
-    @foreach(var i in Model){
-            <tr>
-                <td><a href='auction/@i.id'>@i.Product</a></td>
-                @if(i.SellerId == ViewBag.id)
-                {
-                    <td>You</td>
-                }
-                else
-                {
-                    <td>@i.Seller</td>
-                }
-                <td>$@i.TopBid</td>
-                <td>@i.TimeRemaining</td>
-                @if(i.SellerId == ViewBag.id)
-                {
-                    <td><a href='delete/@i.id'>Delete</a></td>
-                }
-                else
-                {
-                    <td></td>
-                }
-                
-            </tr>
+    @foreach(var i in Model)
+    {
+        <tr>
+            <td><a href='auction/@i.id'>@i.Product</a></td>
+            @if(i.SellerId == ViewBag.id)
+            {
+                <td>You</td>
             }
-    </table>
-    <br>
-<a href='create_auction'><button>New Auction</button></a><br><br>
+            else
+            {
+                <td>@i.Seller</td>
+            }
+            <td>$@i.TopBid</td>
+            <td>@i.TimeRemaining</td>
+            @if(i.SellerId == ViewBag.id)
+            {
+                <td><a href='delete/@i.id'>Delete</a></td>
+            }
+            else
+            {
+                <td></td>
+            }
+            
+        </tr>
+    }
+</table>
+<br>
+<a href='create_auction'><button>New Auction</button></a>
+<br>
+<br>
 <p>You currently have $@ViewBag.Wallet.</p>
